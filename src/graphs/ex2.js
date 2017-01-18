@@ -1,5 +1,5 @@
 import React from 'react';
-import {VictoryLine, VictoryAxis, VictoryLabel, VictoryBar, VictoryPie} from 'victory';
+import {VictoryLine, VictoryAxis, VictoryLabel, VictoryBar, VictoryPie, VictoryTooltip} from 'victory';
 
 class Example2 extends React.Component {
   render() {
@@ -187,7 +187,7 @@ class Example2 extends React.Component {
           viewBox="-40 0 400 400">
           <g transform={"translate(-10,-10)"}>
 
-            <VictoryPie
+            <VictoryPie labelComponent={<VictoryTooltip/>}
               innerRadius={100}
               data={dataSetPIE}
                   x="state"
@@ -224,7 +224,7 @@ class Example2 extends React.Component {
                offsetX={50}
             />
             {/* This will be the first data line */}
-            <VictoryBar
+            <VictoryBar labelComponent={<VictoryTooltip/>}
               data={dataSet1}
               domain={{
                 x:[0,5],
@@ -236,7 +236,7 @@ class Example2 extends React.Component {
             />
 
             {/* //this will just be a second line plotted against same axis, but if I wanted to put a different line with different y values that can be done as well */}
-            <VictoryBar
+            <VictoryBar labelComponent={<VictoryTooltip/>}
               data={dataSet2}
               domain={{
                 x:[0,5],
@@ -256,32 +256,32 @@ class Example2 extends React.Component {
 
   getDataSet1() {
     return [
-      {x:0, y:0},
-      {x:1, y:1},
-      {x:2, y:2},
-      {x:3, y:2},
-      {x:4, y:3},
-      {x:5, y:4},
+      {x:0, y:0, label: "working?"},
+      {x:1, y:1, label: "hello?"},
+      {x:2, y:2, label: "yes?"},
+      {x:3, y:2, label: ":D"},
+      {x:4, y:3, label: "YAY!!"},
+      {x:5, y:4, label: "DID IT!!!"},
     ]
   }
 
   getDataSet2() {
     return [
-      {x:0, y:4},
-      {x:1, y:4},
-      {x:2, y:1},
-      {x:3, y:0},
-      {x:4, y:1},
-      {x:5, y:2},
+      {x:0, y:4, label: "working?"},
+      {x:1, y:4, label: "hello?"},
+      {x:2, y:1, label: "yes?"},
+      {x:3, y:0, label: ":D"},
+      {x:4, y:1, label: "YAY!!!"},
+      {x:5, y:2, label: "DID IT!!!"},
     ]
   }
 
   getDataSetPIE() {
     return [
-      {state: "Free", bytes: 20000000000},
-      {state: "Used", bytes: 12000000000},
-      {state: "Corrupted", bytes: 5000000000},
-      {state: "test", bytes: 8000000000},
+      {state: "Free", bytes: 20000000000, label: "are pie charts easy?"},
+      {state: "Used", bytes: 12000000000, label: "yes?"},
+      {state: "Corrupted", bytes: 5000000000, label: "sweet"},
+      {state: "test", bytes: 8000000000, label: "hopefully lines are easy..."},
 
     ]
   }
