@@ -1,5 +1,5 @@
 import React from 'react';
-import {VictoryLine, VictoryAxis, VictoryLabel, VictoryBar, VictoryPie, VictoryTooltip} from 'victory';
+import {VictoryLine, VictoryAxis, VictoryLabel, VictoryBar, VictoryPie, VictoryTooltip, VictoryVoronoiTooltip } from 'victory';
 
 class Example2 extends React.Component {
   render() {
@@ -178,6 +178,9 @@ class Example2 extends React.Component {
               interpolation="monotoneX"
               style={styles.lineTwo}
             />
+            <VictoryVoronoiTooltip
+              data={dataSet1}
+            />
           </g>
         </svg>
 
@@ -267,12 +270,12 @@ class Example2 extends React.Component {
 
   getDataSet2() {
     return [
-      {x:0, y:4, label: "working?"},
-      {x:1, y:4, label: "hello?"},
-      {x:2, y:1, label: "yes?"},
-      {x:3, y:0, label: ":D"},
-      {x:4, y:1, label: "YAY!!!"},
-      {x:5, y:2, label: "DID IT!!!"},
+      {x:0, y:4, label: `working?`},
+      {x:1, y:4, label: `hello?`},
+      {x:2, y:1, label: `yes?`},
+      {x:3, y:0, label: `:D`},
+      {x:4, y:1, label: `YAY!!!`},
+      {x:5, y:2, label: `DID IT!!!`},
     ]
   }
 
